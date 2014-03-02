@@ -1,10 +1,10 @@
-PREFIX?= /usr/local
-SYSCONFDIR?= ${PREFIX}/etc
+PREFIX?= ${HOME}/.dotfiles
+SYSCONFDIR?= ${PREFIX}
 INSTALL?= install
-INSTALLBIN= ${INSTALL} -D -m 555
-INSTALLMAN= ${INSTALL} -D -m 444
-INSTALLCONF= ${INSTALL} -D -m 644
-COPYFILE= ${INSTALL} -D -m 644
+INSTALLBIN= ${INSTALL} -m 555
+INSTALLMAN= ${INSTALL} -m 444
+INSTALLCONF= ${INSTALL} -m 644
+COPYFILE= ${INSTALL} -m 644
 
 all: vimpager.1 README README.md
 
@@ -18,7 +18,7 @@ install:
 	${INSTALLBIN} vimpager ${DESTDIR}${PREFIX}/bin/vimpager
 	${INSTALLBIN} vimcat ${DESTDIR}${PREFIX}/bin/vimcat
 	${INSTALLMAN} vimpager.1 ${DESTDIR}${PREFIX}/share/man/man1/vimpager.1
-	${INSTALLCONF} vimpagerrc ${DESTDIR}${SYSCONFDIR}/vimpagerrc
+	# ${INSTALLCONF} vimpagerrc ${DESTDIR}${SYSCONFDIR}/vim/vimpagerrc
 
 man: vimpager.1
 
